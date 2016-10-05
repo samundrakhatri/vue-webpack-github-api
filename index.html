@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Github API</title>
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+  <div class="row">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Github API</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <router-link to="/feed">Feed</router-link>
+          </li>
+          <li>
+            <router-link to="/me">Me</router-link>
+          </li>
+          <li>
+            <router-link to="/trends">Trends</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="row col-lg-offset-2 col-lg-8">
+    <div class="jumbotron">
+      <router-view></router-view>
+    </div>
+  </div>
+</div>
+<!-- built files will be auto injected -->
+</body>
+</html>
