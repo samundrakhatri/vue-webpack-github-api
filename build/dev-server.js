@@ -57,6 +57,7 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 app.use(express.static(path.join(__dirname, '../bower_components')));
+app.use(express.static(path.join(__dirname, '../static')));
 
 module.exports = app.listen(port, function (err) {
   if (err) {

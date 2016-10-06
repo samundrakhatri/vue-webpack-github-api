@@ -1,11 +1,31 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+/*
+ global require
+ */
+const $ = require('jquery');
+window._ = require('lodash');
+window.jQuery = $;
+window.$ = $;
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import vueResource from 'vue-resource';
 import Login from './components/Login/Login.vue';
 import Home from './components/Me.vue';
+import { globalMixins } from './Mixins';
+
+Vue.mixin(globalMixins);
 Vue.use(VueRouter);
-/* eslint-disable no-new */
+Vue.use(vueResource);
+Vue.http.headers.common.Authorization = 'token 3d1a2f8806c37231e42aaeb2ec9bad4d3787ea3c';
+Vue.directive('loadingImage', {
+  bind(el) {
+    /*
+    eslint no-param-reassign: ["error", { "props": false }]
+    */
+    el.innerHTML = '<img src="/images/loading.gif" width="200px" height="200px"/>';
+  },
+});
 
 const componentsAndRoutes = [
   {

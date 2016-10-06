@@ -11,8 +11,13 @@ var env = process.env.NODE_ENV === 'testing'
   : config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
+  resolve: {
+    alias: {
+      jquery: "../bower_components/jquery/dist/jquery.min"
+    }
+  },
   module: {
-    loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+    loaders: utils.styleLoaders({sourceMap: config.build.productionSourceMap, extract: true})
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {

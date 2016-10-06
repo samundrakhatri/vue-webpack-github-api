@@ -11,8 +11,13 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  resolve: {
+    alias: {
+      jquery: "../bower_components/jquery/dist/jquery.min"
+    }
+  },
   module: {
-    loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    loaders: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
   },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
